@@ -1,0 +1,4 @@
+#!/bin/bash
+ls -a
+ls -a source ./11-lists
+ls -a /boot
