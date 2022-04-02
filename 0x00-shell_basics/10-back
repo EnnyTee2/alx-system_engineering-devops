@@ -1,2 +1,3 @@
 #!/bin/bash
-source /var
+cd /var
+source ./10-back
