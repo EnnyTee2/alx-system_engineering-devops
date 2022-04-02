@@ -1,4 +1,2 @@
 #!/bin/bash
-ls -a
-ls -a source ./11-lists
-ls -a /boot
+ls -a -l {pwd, source ./11-lists, /boot}
