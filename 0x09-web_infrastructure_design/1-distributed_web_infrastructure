@@ -1,1 +1,25 @@
 https://drive.google.com/file/d/1JNGAcbWCA9d6lYbqtCAJPpGhgrkMScHg/view?usp=sharing
+
+
+
+Additional Elements
+- 2 Additional Servers: 
+2 extra servers are added to the previous infrastructure so that there is sufficient redundancy
+
+- One Load Balancer (HAProxy): 
+The load balancer is adder to distribute the traffic among the three servers, the load balancer in this case operates on the Round-Robin Scheduling Algorithm following the sequence
+Server 0 --> Server 1 -->  Server 2 ---
+`\_ _ _ _  _ _ _ _ _ _ _ _  _ _ _ _ _ _|
+
+Load Balancer Configuration
+The Load balancer is configured to have an active-active setup so as to offer "High Availability" (due to the presence of multiple servers) and redundancy
+
+Data Synchronization
+- The MySQL Master-Replica cluster uses replication to keep data synchronized. This master-slave replication system prevents any downtime as the slaves (which are constant live backups of the master database) can always be promoted to master if the original master server crashes.
+- As the Master-Slave replication is a one-way replication (from master to slave), only the Master database node can accept read/write while the Replica (slaves) can only accept reads.
+
+Problems With This Infrastructure
+- The load balancer is a single point of failure as its failure would spell the crashing of this infrastructure
+- No firewall on servers
+- Traffic is unencrypted owing to the fact there is no TLS (or SSL) to encrypt the HTTP requests and responses
+- No monitoring
