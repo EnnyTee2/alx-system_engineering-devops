@@ -1,0 +1,13 @@
+https://drive.google.com/file/d/1m1K_ekkKErkHZEgoh3C99cCWOV7etQUr/view?usp=sharing
+
+
+
+
+
+Additional Elements
+- Servers for specific components (web server, application server, database server)
+- 1 HAproxy load balancer (making a total of two and both configured as a cluster)
+
+Load Balancer
+- the load balancer cluster configuration ensures that if one fails, the other takes over
+- the load balancers are configured in transparent mode so that the true IP of the client is sent to the backend servers.
