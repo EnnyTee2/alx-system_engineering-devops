@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Connects to my remote Ubuntu server.
+
+ssh -i ~/.ssh/holberton ubuntu@34.236.192.213
