@@ -19,7 +19,7 @@ Holberton-provided server.
 
 * **3. Let me in!**
   * adding a given public key to my server allowance list to allow for a connection
-  * from another ubuntu client
+    from another ubuntu client
 
 * **4. Client configuration file (w/ Puppet)**
   * [100-puppet_ssh_config.pp](./100-puppet_ssh_config.pp): A repeat of task 2, this time with the Puppet tool.
