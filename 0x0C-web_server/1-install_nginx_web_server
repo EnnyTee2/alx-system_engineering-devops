@@ -5,6 +5,6 @@
 #   at the root with a curl GET request.
 
 sudo apt-get update -y
-sudo apt-get install nginx -y
-echo "Hello World!" | sudo tee /var/www/html/index.html
+sudo apt-get install -y nginx
+echo "Hello World!" > /var/www/html/index.html
 sudo service nginx restart
