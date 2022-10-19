@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Bash script that configures a new Ubuntu machine to respect task requirements (this script will be run on the server itself):
+# Configures nginx to permanently redirect the sublocation "/redirect_me" to a new page
+
+sudo apt-get update -y
+sudo apt-get install -y nginx
+sudo ufw allow 'Nginx HTTP'
+echo "Hello World" | sudo tee /var/www/html/index
+sudo sed -i '/listen 80 default_server/a rewrite ^/redirect_me https://www.google.com/ permanent;' /etc/nginx/sites-available/default
+sudo service nginx restart
