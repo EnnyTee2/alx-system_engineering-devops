@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # Installs nginx with the below configuration
 #+    Listens on port 80
 #+    Returns a page containing 'Hello World' when queried
