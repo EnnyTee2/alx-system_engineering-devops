@@ -13,8 +13,8 @@ frontend http_front
     
 backend http_back
     balance roundrobin
-    server 26071-web-01 44.210.150.159:80 check
-    server 26071-web-02 35.173.47.15:80 check
+    server 45262-web-01 44.200.187.123:80 check
+    server 45262-web-02 54.224.16.135:80 check
 "
 # Update packages
 apt-get -y update
