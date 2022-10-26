@@ -1,0 +1,39 @@
+#!/bin/env bash
+
+# Installs nginx with the below configuration
+#+    Listens on port 80
+#+    Returns a page containing 'Hello World' when queried
+#+    at the root with curl GET request.
+#+    Configures/redirect_me as a "301 Moved Permanently"
+#+    Includes a custom 404 page contaning:
+#+    "Ceci n'est pas une page"
+#+    contains a custom HTTP response header named X-Served-By.
+#+    The value of X-Served-By is the hostanme of the server.
+
+sudo apt update
+sudo apt install -y nginx
+
+mkdir -p /var/www/html
+touch /var/www/html/index.html
+echo "Hello World" > /var/www/html/index.html
+
+touch /var/www/html/404.html
+echo "Ceci n'est pas une page" > /var/www/html/404.html
+
+printf %s "server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    add_header X-Served-By $HOSTNAME;
+    root   /var/www/html;
+    index  index.html index.htm;
+    location /redirect_me {
+        return 301 http://google.com/;
+    }
+    error_page 404 /404.html;
+    location /404 {
+      root /var/www/html;
+      internal;
+    }
+}" > /etc/nginx/sites-available/default
+
+service nginx restart
