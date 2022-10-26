@@ -14,16 +14,16 @@ sudo chown ubuntu:ubuntu /etc/haproxy/haproxy.cfg
 sudo chmod 700 /etc/haproxy/haproxy.cfg
 
 # add a new load balancer configuration
-printf %s "
+printf %s "\
 frontend http_front
-   bind *:80
-   stats uri /haproxy?stats
-   default_backend http_back
+    bind *:80
+    mode http
+    default_backend http_back
 
 backend http_back
-   balance roundrobin
-   server web-01 44.200.187.123:80 check
-   server web-02 54.224.16.135:80 check
+    balance roundrobin
+    server web-01 44.200.187.123:80 check
+    server web-02 54.224.16.135:80 check
 " >> /etc/haproxy/haproxy.cfg
 
 # restart haproxy
