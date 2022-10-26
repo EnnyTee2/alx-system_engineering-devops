@@ -5,7 +5,19 @@
 #+ Distribute requests using a roundrobin algorithm
 #+ HAproxy must be manageable via an init script
 
-balancer="\
+# Update packages
+apt-get -y update
+
+# Add HAProxy PPA
+apt-get -y install software-properties-common
+add-apt-repository -y ppa:vbernat/haproxy-2.5
+apt-get -y update
+
+#install HAproxy
+apt-get -y install haproxy
+
+#configure HAproxy
+printf %s "
 frontend http_front
     bind *:80
     mode http
@@ -15,17 +27,6 @@ backend http_back
     balance roundrobin
     server web-01 44.200.187.123:80 check
     server web-02 54.224.16.135:80 check
-"
-# Update packages
-apt-get -y update
+" >> /etc/haproxy/haproxy.cfg
 
-# Add HAProxy PPA
-apt-get -y install software-properties-common
-add-apt-repository -y ppa:vbernat/haproxy-2.5
-apt-get -y update
-
-#configure haproxy
-apt-get -y install haproxy
-cp -a /etc/haproxy/haproxy.cfg{,.orig}
-echo "$balancer" >> /etc/haproxy/haproxy.cfg
 service haproxy restart
