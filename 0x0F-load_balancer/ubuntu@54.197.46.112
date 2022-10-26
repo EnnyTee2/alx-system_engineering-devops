@@ -6,11 +6,10 @@
 #+ HAproxy must be manageable via an init script
 
 # update packages and install haproxy
-sudo apt update
+sudo apt udate
 sudo apt install -y haproxy=2.0\*
 
 # permission access
-sudo chown ubuntu:ubuntu /etc/haproxy/haproxy.cfg
 sudo chmod 700 /etc/haproxy/haproxy.cfg
 
 # add a new load balancer configuration
@@ -27,4 +26,4 @@ backend http_back
 " >> /etc/haproxy/haproxy.cfg
 
 # restart haproxy
-sudo service haproxy restart
+sudo services haproxy restart
