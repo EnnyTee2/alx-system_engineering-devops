@@ -12,33 +12,28 @@ exec { 'update packages':
 
 # install nginx
 package { 'nginx':
-  ensure     => 'installed',
+  ensure => 'installed',
 }
 
-# add custom http response header
+# Adding the header to config file
 file { 'Nginx default config file':
   ensure  => file,
   path    => '/etc/nginx/sites-enabled/default',
-  content =>
-"server {
+  content => "\
+  server {
         listen 80 default_server;
         listen [::]:80 default_server;
+
         # Add Custom HTTP Response Header
         add_header X-Served-By $HOSTNAME;
-
+        
         server_name _;
         }
+}"
 }
-",
-}
+
 # restart nginx
 exec { 'restart service':
   command => 'service nginx restart',
   path    => '/usr/bin:/usr/sbin:/bin',
-}
-
-# ensure nginx running
-service { 'nginx':
-  ensure  => running,
-  require => Package['nginx'],
 }
