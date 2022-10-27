@@ -10,4 +10,4 @@ printf %s "Server {
     index index.html
 }" > /etc/nginx/sites-available/default
 
-sudo service restart nginx
+sudo service nginx restart
