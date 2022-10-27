@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
-# bash script to automate the fix on a buggy ubuntu nginx server installation
+# bash script to automate the fix on a buggy ubuntu nginx server installation                                                                                                                                     
+                                                                                                                       
+# Go to sites-enabled folder for Nginx                                                                                                                    
+cd /etc/nginx/sites-enabled/ || exit;                                                                                                                             
+# Delete the default file                                                                                                                               
+rm default;
 
-sudo apt update
-sudo apt install -y nginx
+# Create a symbolic link to the deafult file in sites-available                                                                                             
+ln -s /etc/nginx/sites-available/default default; 
 
-printf %s "Server {
-    listen 80 default_server;
-    root /var/www/html
-    index index.html
-}" > /etc/nginx/sites-available/default
-
-sudo service nginx restart
+# Restart Nginx                                                                                                                                           
+service nginx restart 
