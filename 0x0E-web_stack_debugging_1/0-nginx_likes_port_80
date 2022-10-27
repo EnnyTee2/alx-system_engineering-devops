@@ -5,15 +5,11 @@ sudo apt update
 sudo apt install -y nginx
 
 sudo ufw allow 'Nginx HTTP'
-sudo chown ubuntu:ubuntu /etc/nginx/sites-available/default
-sudo chmod 770 /etc/nginx/sites-available/default
 
 printf %s "Server {
     listen 80 default_server;
-    
-    root   /var/www/html;
-    index  index.html index.htm;
-    server_name _;
+    root /var/www/html
+    index index.html
 }" > /etc/nginx/sites-available/default
 
 sudo service restart nginx
