@@ -36,7 +36,7 @@ frontend www-http
         bind :80
         mode http
         http-request add-header X-Forwarded-Proto http
-        http-request redirect scheme htttps unless
+        http-request redirect scheme https
         default_backend www-backend
 
 frontend www-https
