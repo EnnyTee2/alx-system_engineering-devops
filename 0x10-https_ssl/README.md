@@ -1,6 +1,6 @@
 # 0x10. HTTPS SSL
 
-## This directory covers tasks involving setting up SSL on my 'www.ennytee.tech' domain hosted in the previous project tasks.
+## This directory covers tasks involving setting up SSL on my 'www.ennytee.tech' domain hosted in a previous project.
 Some key requirements fulfilled are as follows:
 
 * Configuring the domain zone so that the subdomain 'www' points to my load-balancer IP (lb-01).
