@@ -8,4 +8,8 @@
 
 ## of an ubuntu firewall on my web servers.
 
-[Uploading 0x13-firewall.png…]()
+<img
+  src="/path/to/img.jpg"
+  alt="Alt text"
+  title="Optional title"
+  style="display: inline-block; margin: 0 auto; max-width: 300px">
