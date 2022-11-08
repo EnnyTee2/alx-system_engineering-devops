@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # run command as another user while taking a single argument
 
-if [ $# -gt 2 ]
+if [ $# -gt 1 ]
 then 
   echo "this program accepts only one argument!"
 elif [ $# -eq 1 ]
