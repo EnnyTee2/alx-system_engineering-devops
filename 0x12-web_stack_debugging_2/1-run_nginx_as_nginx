@@ -11,6 +11,6 @@ sed -i "s/80/8080/g" /etc/nginx/sites-available/default
 chmod 644 /etc/nginx/nginx.conf
 
 # stop the apache service
-# pkill apache2
+pkill apache2
 # start the nginx service as user: nginx
 sudo -u nginx service nginx start
