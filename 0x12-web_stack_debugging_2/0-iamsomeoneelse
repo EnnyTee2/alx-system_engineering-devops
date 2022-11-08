@@ -4,7 +4,7 @@
 if [ $# -gt 2 ]
 then 
   echo "this program accepts only one argument!"
-elif [ $# -eq 1]
+elif [ $# -eq 1 ]
 then
   echo "supply the user argument"
 else
