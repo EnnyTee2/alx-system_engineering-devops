@@ -8,5 +8,5 @@ elif [ $# -lt 1 ]
 then
   echo "supply the user argument"
 else
-  sudo -u "$1" -c whoami
+  sudo -u "$1" whoami
 fi
