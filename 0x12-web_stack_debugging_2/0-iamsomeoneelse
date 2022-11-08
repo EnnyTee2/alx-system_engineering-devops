@@ -4,4 +4,4 @@ if [ $# -gt 2 ]
 then echo "this program accepts only one argument!"
 fi
 
-runuser -u "$1" -c whoami
+sudo -u "$1" -c whoami
