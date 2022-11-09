@@ -1,5 +1,13 @@
 #!/usr/bin/env bash
 # Generates a compressed archive of a MySQL dump of all databases
 
+# dump the DB to a file
 mysqldump -u root -p "$1" --all-databases > backup.sql
-tar -cvzf "$(date +%d-%m-%Y)".tar.gz backup.sql
+
+# compress and archive the file formatting its
+# name to the  current date & time
+day=$(date +"%d")
+month=$(date +"%m")
+year=$(date +"%Y")
+file="$day-$month-$year.tar.gz"
+tar -czvf "$file" backup.sql
