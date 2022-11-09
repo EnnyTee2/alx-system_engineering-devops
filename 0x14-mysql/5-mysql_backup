@@ -4,5 +4,6 @@
 # dump the DB to a file
 mysqldump -u root -p "$1" --all-databases > backup.sql
 
-#compress and archive the file formatting its name to the  current date & time
+# compress and archive the file formatting its
+# name to the  current date & time
 tar -cvzf "$(date +%d-%m-%Y)".tar.gz backup.sql
