@@ -7,8 +7,4 @@ mysqldump --all-databases -u root --password="$1" > backup.sql
 
 # compress and archive the file formatting its
 # name to the  current date & time
-day=$(date +"%d")
-month=$(date +"%m")
-year=$(date +"%Y")
-file="$day-$month-$year.tar.gz"
-tar -czvf "$file" backup.sql
+tar -cvzf "$(date +%d-%m-%Y)".tar.gz backup.sql
