@@ -3,7 +3,7 @@
 import requests
 
 
-def recurse(subreddit, hot_list=[], after='', count=0):
+def recurse(subreddit, hot_list=[], after=''):
     """ returns a list containing the titles
     of all hot articles for a given subreddit"""
     url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
@@ -12,8 +12,7 @@ def recurse(subreddit, hot_list=[], after='', count=0):
         64; rv:15.0) Gecko/20100101 Firefox/15.0.1"
     }
     params = {
-        "after": after,
-        "count": count
+        "after": after
     }
     response = requests.get(url, headers=headers, params=params,
                             allow_redirects=False)
@@ -22,7 +21,6 @@ def recurse(subreddit, hot_list=[], after='', count=0):
 
     results = response.json().get("data")
     after = results.get("after")
-    count += results.get("dist")
     for thread in results.get("children"):
         hot_list.append(thread.get("data").get("title"))
 
