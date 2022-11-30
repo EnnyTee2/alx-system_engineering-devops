@@ -14,7 +14,7 @@ def recurse(subreddit, hot_list=[], after=None):
     params = {
         "after": after
     }
-    response = requests.get(url, headers=headers, params=params,  allow_redirects=False)
+    response = requests.get(url, headers=headers, params=params, allow_redirects=False)
     if response.status_code == 404:
         return None
     results = response.json().get("data").get("children")
