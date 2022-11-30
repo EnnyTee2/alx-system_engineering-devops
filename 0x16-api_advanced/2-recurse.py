@@ -12,20 +12,21 @@ def recurse(subreddit, hot_list=[], after=''):
         64; rv:15.0) Gecko/20100101 Firefox/15.0.1"
     }
     params = {
-        "after": after
+        "after": after,
+        "count": count,
+        "limit": 100
     }
     response = requests.get(url, headers=headers, params=params,
                             allow_redirects=False)
-    #if after == '':
-    #    response = requests.get(url, headers=headers, allow_redirects=False)
-    #else:
-    #   response = requests.get(url, headers=headers, after=after, allow_redirects=False)
     if response.status_code == 404:
         return None
+
     results = response.json().get("data")
-    aft = results.get('after')
-    for res in results.get('children'):
-        hot_list.append(res.get('data').get('title'))
-    if after != '':
-        return recurse(subreddit, hot_list, after=aft)
+    after = results.get("after")
+    count += results.get("dist")
+    for c in results.get("children"):
+        hot_list.append(c.get("data").get("title"))
+
+    if after is not None:
+        return recurse(subreddit, hot_list, after, count)
     return hot_list
