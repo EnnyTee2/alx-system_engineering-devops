@@ -14,13 +14,13 @@ def recurse(subreddit, hot_list=[], after=''):
     if after == '':
         response = requests.get(url, headers=headers, allow_redirects=False)
     else:
-        response = requests.get(url, headers=headers, params={'after': after}, allow_redirects=False)
+        response = requests.get(url, headers=headers, allow_redirects=False)
     if response.status_code == 404:
         return None
     results = response.json().get("data").get("children")
-    after = response.json().get('after')
+    aft = response.json().get('data').get('after')
     for res in results:
         hot_list.append(res.get('data').get('title'))
     if after != '':
-        return recurse(subreddit, hot_list=hot_list, after=after)
+        return recurse(subreddit, hot_list, after=aft)
     return hot_list
