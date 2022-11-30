@@ -8,8 +8,8 @@ def number_of_subscribers(subreddit):
        posts listed for a given subreddit."""
     url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
     headers = {
-        "User-Agent": "0x16-api_advanced:project:\
-v1.0.0 (by /u/firdaus_cartoon_jr)"
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_\
+        64; rv:15.0) Gecko/20100101 Firefox/15.0.1"
     }
     params = {
         "limit": 10
