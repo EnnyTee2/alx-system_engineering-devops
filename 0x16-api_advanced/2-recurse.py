@@ -11,7 +11,6 @@ def recurse(subreddit, hot_list=[], after=None):
         "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_\
         64; rv:15.0) Gecko/20100101 Firefox/15.0.1"
     }
-    
     response = requests.get(url, headers=headers, allow_redirects=False)
     if response.status_code == 404:
         return None
@@ -20,5 +19,5 @@ def recurse(subreddit, hot_list=[], after=None):
     for res in results:
         hot_list.append(res.get('data').get('title'))
     if after is not None:
-        return recurse(subreddit, hot_list, after)
+        return recurse(subreddit, hot_list=hot_list, after=after)
     return hot_list
