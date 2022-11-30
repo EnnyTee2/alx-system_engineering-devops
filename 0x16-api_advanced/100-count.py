@@ -4,7 +4,7 @@
 import requests
 
 
-def def count_words(subreddit, word_list, after='', word_dict={})
+def count_words(subreddit, word_list, after='', word_dict={})
     """queries the Reddit API, parses the title of
     all hot articles, and prints a sorted count of
     given keywords (case-insensitive, delimited by space"""
