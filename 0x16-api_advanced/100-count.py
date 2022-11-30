@@ -4,10 +4,16 @@
 import requests
 
 
-def count_words(subreddit, word_list, after='', word_dict={})
-    """queries the Reddit API, parses the title of
-    all hot articles, and prints a sorted count of
-    given keywords (case-insensitive, delimited by space)"""
+import requests
+
+
+def count_words(subreddit, word_list, after='', word_dict={}):
+    """ A function that queries the Reddit API parses the title of
+    all hot articles, and prints a sorted count of given keywords
+    (case-insensitive, delimited by spaces.
+    Javascript should count as javascript, but java should not).
+    If no posts match or the subreddit is invalid, it prints nothing.
+    """
 
     if not word_dict:
         for word in word_list:
