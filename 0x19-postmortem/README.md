@@ -1,10 +1,9 @@
 # Postmortem
 
-Upon the release of Holberton School's System Engineering & DevOps project 0x19,
-approximately 00:07 Pacific Standard Time (PST), an outage occurred on an isolated
+At approximately 00:07  West African Time (WAT), an outage occurred on an isolated
 Ubuntu 14.04 container running an Apache web server. GET requests on the server led to
 `500 Internal Server Error`'s, when the expected response was an HTML file defining a
-simple Holberton WordPress site.
+simple WorPress site.
 
 ## Debugging Process
 
@@ -63,3 +62,5 @@ replaces any `phpp` extensions in the file `/var/www/html/wp-settings.php` with 
 
 But of course, it will never occur again, because we're programmers, and we never make
 errors! :wink:
+![server_downjpg](https://user-images.githubusercontent.com/44221402/207028276-ab183a57-288b-4951-8304-30a389a49be9.jpg)
+
