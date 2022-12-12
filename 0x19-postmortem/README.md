@@ -1,6 +1,6 @@
 # Postmortem
 
-At approximately 00:07  West African Time (WAT), an outage occurred on an isolated
+At approximately 08:30  West African Time (WAT), an outage occurred on an isolated
 Ubuntu 14.04 container running an Nginx web server. GET requests on the server led to
 `500 Internal Server Error`'s, when the expected response was an HTML file defining a
 simple website.
@@ -8,7 +8,7 @@ simple website.
 ## Debugging Process
 
 I encountered the issue upon opening the project and being well instructed to
-address it, roughly 19:20 PST. I quickly proceeded to begin solving the problem.
+address it, roughly 11:00 WAT. I quickly proceeded to begin solving the problem.
 
 1. Checked running processes using `ps aux`. Two `nginx` processes - `root` and `www-data` -
 were properly running.
